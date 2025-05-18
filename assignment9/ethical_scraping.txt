@@ -1,0 +1,10 @@
+1. Which sections of the website are restricted for crawling?
+   - /w/
+   - /wiki/Special:
+   - /wiki/Category:
+
+2. Are there specific rules for certain user agents?
+   Yes, Wikipedia's `robots.txt` includes specific rules for certain user agents like Googlebot, Bingbot, etc. For example, some bots may have different access levels to certain pages.
+
+3. Why do websites use robots.txt?
+   Websites use `robots.txt` to control how search engines and web crawlers interact with their content. By specifying what can or cannot be crawled, they can protect sensitive data, ensure better performance, and maintain control over the site's visibility on search engines. This promotes ethical scraping by encouraging crawlers to respect site boundaries, reducing the impact of scraping on server resources.

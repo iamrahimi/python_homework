@@ -1,0 +1,40 @@
+Analysis of scraped data from SQLite database:
+- Number of headers: 33
+- Number of links: 10
+- Most frequent data type: 'header' with 33 occurrences.
+
+
+==================================================================
+Comparison Between Relational and Non-Relational Databases
+
+Relational Databases (e.g., SQLite):
+
+- Store data in tables with predefined schemas (rows and columns).
+- Use Structured Query Language (SQL) for querying.
+- Support ACID (Atomicity, Consistency, Isolation, Durability) properties, which ensure reliable transactions.=
+- Suitable for structured data with complex relationships and integrity constraints.
+
+
+Non-Relational Databases (e.g., MongoDB):
+
+- Store data as flexible, schema-less documents (usually JSON-like).
+- Use query languages specific to the database but not SQL.
+- Designed for scalability and high availability, often supporting horizontal scaling.
+- Better for unstructured or semi-structured data, or when the schema may evolve frequently.
+
+=============================================
+
+Suitability for Projects
+Small-scale Project like Scraping Wikipedia:
+
+    Relational databases like SQLite are more suitable because:
+    The data structure (titles, headers, links) is relatively simple and fits well into tables.
+    SQLite is lightweight, easy to set up, and requires minimal configuration.
+    ACID compliance ensures data integrity with simple transactional needs.
+
+Large-scale Project Involving Millions of Records:
+
+    Non-relational databases like MongoDB are generally more suitable because:
+    They handle large volumes of diverse and evolving data more flexibly.
+    Built for horizontal scaling across multiple servers, allowing high performance and availability.
+    Schema flexibility helps when data structure can change over time.

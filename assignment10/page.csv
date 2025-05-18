@@ -1,0 +1,73 @@
+type,content,extra
+title,Python (programming language) - Wikipedia,
+header,Python (programming language),h1
+header,Contents,h2
+header,History,h2
+header,Design philosophy and features,h2
+header,Syntax and semantics,h2
+header,Code examples,h2
+header,Libraries,h2
+header,Development environments,h2
+header,Implementations,h2
+header,Language Development,h2
+header,API documentation generators,h2
+header,Naming,h2
+header,Popularity,h2
+header,Types of Use,h2
+header,Languages influenced by Python,h2
+header,See also,h2
+header,Notes,h2
+header,References,h2
+header,Further reading,h2
+header,External links,h2
+header,Indentation,h3
+header,Statements and control flow,h3
+header,Expressions,h3
+header,Methods,h3
+header,Typing,h3
+header,Arithmetic operations,h3
+header,Function syntax,h3
+header,Reference implementation,h3
+header,Other implementations,h3
+header,Unsupported implementations,h3
+header,Cross-compilers to other languages,h3
+header,Performance,h3
+header,Sources,h3
+link,Jump to content,https://en.wikipedia.org/wiki/Python_(programming_language)#bodyContent
+link,(Top),https://en.wikipedia.org/wiki/Python_(programming_language)#
+link,History,https://en.wikipedia.org/wiki/Python_(programming_language)#History
+link,Design philosophy and features,https://en.wikipedia.org/wiki/Python_(programming_language)#Design_philosophy_and_features
+link,Syntax and semantics,https://en.wikipedia.org/wiki/Python_(programming_language)#Syntax_and_semantics
+link,Code examples,https://en.wikipedia.org/wiki/Python_(programming_language)#Code_examples
+link,Libraries,https://en.wikipedia.org/wiki/Python_(programming_language)#Libraries
+link,Development environments,https://en.wikipedia.org/wiki/Python_(programming_language)#Development_environments
+link,Implementations,https://en.wikipedia.org/wiki/Python_(programming_language)#Implementations
+link,Language Development,https://en.wikipedia.org/wiki/Python_(programming_language)#Language_Development
+image,,https://en.wikipedia.org/static/images/icons/wikipedia.png
+image,Wikipedia,https://en.wikipedia.org/static/images/mobile/copyright/wikipedia-wordmark-en.svg
+image,The Free Encyclopedia,https://en.wikipedia.org/static/images/mobile/copyright/wikipedia-tagline-en.svg
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/150px-Python-logo-notext.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/20px-Wikibooks-logo-en-noslogan.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Guido_van_Rossum_in_PyConUS24.jpg/250px-Guido_van_Rossum_in_PyConUS24.jpg
+image,Block of Python code showing sample source code,https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Hello_World_in_Python.png/250px-Hello_World_in_Python.png
+image,C code featuring curly braces and semicolon,https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Af-Helloworld_%28C_Sharp%29.svg/250px-Af-Helloworld_%28C_Sharp%29.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Python_3.13_Standrd_Type_Hierarchy-en.svg/250px-Python_3.13_Standrd_Type_Hierarchy-en.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tiobeindex.png/250px-Tiobeindex.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Python_Powered.png/250px-Python_Powered.png
+image,icon,https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/40px-Octicons-terminal.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Free_and_open-source_software_logo_%282009%29.svg/40px-Free_and_open-source_software_logo_%282009%29.svg.png
+image,,https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/20px-Commons-logo.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/40px-Wikiquote-logo.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/40px-Wikibooks-logo.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Wikiversity_logo_2017.svg/40px-Wikiversity_logo_2017.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/40px-Wikidata-logo.svg.png
+image,Edit this at Wikidata,https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png
+image,,https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/60px-Python-logo-notext.svg.png
+image,,https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Symbol_list_class.svg/20px-Symbol_list_class.svg.png
+image,,https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Symbol_category_class.svg/20px-Symbol_category_class.svg.png
+image,,https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Symbol_portal_class.svg/20px-Symbol_portal_class.svg.png
+image,,https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Symbol_portal_class.svg/20px-Symbol_portal_class.svg.png
+image,,https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Symbol_category_class.svg/20px-Symbol_category_class.svg.png
+image,Edit this at Wikidata,https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png
+image,Wikimedia Foundation,https://en.wikipedia.org/static/images/footer/wikimedia.svg
+image,Powered by MediaWiki,https://en.wikipedia.org/w/resources/assets/mediawiki_compact.svg

@@ -212,7 +212,7 @@ def write_sorted_list():
 
     # Open the file for writing
     try:
-        with open('./minutes.csv', mode='w', newline='') as file:
+        with open('.assignment2/minutes.csv', mode='w', newline='') as file:
             writer = csv.writer(file)
 
             # Write the header row (fields from minutes1)

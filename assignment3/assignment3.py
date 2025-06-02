@@ -28,14 +28,14 @@ print("\nTask 1 Older (Age incremented):")
 print(task1_older)
 
 # Step 4: Save to CSV
-task1_older.to_csv("employees.csv", index=False)
+task1_older.to_csv("assignment3/employees.csv", index=False)
 print("\nData saved to 'employees.csv'")
 
 
 # Task 2: Loading Data from CSV and JSON ===============================================
 
 # Step 1: Load data from CSV file into a new DataFrame
-task2_employees = pd.read_csv("employees.csv")
+task2_employees = pd.read_csv("assignment3/employees.csv")
 print("Task 2 - Employees from CSV:")
 print(task2_employees)
 
@@ -63,7 +63,7 @@ with open("additional_employees.json", "w") as json_file:
     json.dump(json_data, json_file)
 
 # Now read it into a DataFrame
-json_employees = pd.read_json("additional_employees.json")
+json_employees = pd.read_json("assignment3/additional_employees.json")
 print("\nTask 2 - Employees from JSON:")
 print(json_employees)
 

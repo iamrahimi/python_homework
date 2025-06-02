@@ -46,6 +46,6 @@ print("\nSummary DataFrame:")
 print(summary_df.head())
 
 # Write to CSV in assignment7 folder
-output_path = os.path.join(os.getcwd(), "order_summary.csv")
+output_path = os.path.join(os.getcwd(), "assignment7/order_summary.csv")
 summary_df.to_csv(output_path, index=False)
 print(f"\nSummary written to: {output_path}")

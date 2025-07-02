@@ -1,0 +1,15 @@
+function: greet
+positional parameters: none
+keyword parameters: none
+return: None
+--------------------------------------------------
+function: check_numbers
+positional parameters: [1, 2, 3, 4]
+keyword parameters: none
+return: True
+--------------------------------------------------
+function: return_decorator
+positional parameters: none
+keyword parameters: {'name': 'Alice', 'role': 'Developer'}
+return: <function logger_decorator at 0x100d769e0>
+--------------------------------------------------

@@ -9,7 +9,7 @@ print(hello())
 
 # Task 2: Greet with a Formatted String
 def greet(name):
-    return "Hello " +name + "!"
+    return f"Hello, {name}!"
 
 print(greet("Mike"))
 

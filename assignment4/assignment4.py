@@ -28,14 +28,14 @@ print("\nTask 1 Older (Age incremented):")
 print(task1_older)
 
 # Step 4: Save to CSV
-task1_older.to_csv("assignment3/employees.csv", index=False)
+task1_older.to_csv("assignment4/employees.csv", index=False)
 print("\nData saved to 'employees.csv'")
 
 
 # Task 2: Loading Data from CSV and JSON ===============================================
 
 # Step 1: Load data from CSV file into a new DataFrame
-task2_employees = pd.read_csv("assignment3/employees.csv")
+task2_employees = pd.read_csv("assignment4/employees.csv")
 print("Task 2 - Employees from CSV:")
 print(task2_employees)
 
@@ -59,11 +59,11 @@ json_data = [
 ]
 
 # Save the JSON data to a file
-with open("assignment3/additional_employees.json", "w") as json_file:
+with open("assignment4/additional_employees.json", "w") as json_file:
     json.dump(json_data, json_file)
 
 # Now read it into a DataFrame
-json_employees = pd.read_json("assignment3/additional_employees.json")
+json_employees = pd.read_json("assignment4/additional_employees.json")
 print("\nTask 2 - Employees from JSON:")
 print(json_employees)
 
@@ -96,7 +96,7 @@ more_employees.info()
 # Task 4: Data Cleaning ======================================
 
 # 1. Load the CSV file
-dirty_data = pd.read_csv("assignment3/dirty_data.csv")
+dirty_data = pd.read_csv("assignment4/dirty_data.csv")
 print("Original dirty data:")
 print(dirty_data)
 

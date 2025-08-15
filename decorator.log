@@ -1,0 +1,75 @@
+function: greet
+positional parameters: none
+keyword parameters: none
+return: None
+--------------------------------------------------
+function: check_args
+positional parameters: [1, 2, 3, 'test']
+keyword parameters: none
+return: True
+--------------------------------------------------
+function: return_decorator
+positional parameters: none
+keyword parameters: {'a': 10, 'b': 'hello'}
+return: <function logger_decorator at 0x102638360>
+--------------------------------------------------
+function: greet
+positional parameters: none
+keyword parameters: none
+return: None
+--------------------------------------------------
+function: check_args
+positional parameters: [1, 2, 3, 'test']
+keyword parameters: none
+return: True
+--------------------------------------------------
+function: return_decorator
+positional parameters: none
+keyword parameters: {'a': 10, 'b': 'hello'}
+return: <function logger_decorator at 0x10493c360>
+--------------------------------------------------
+function: greet
+positional parameters: none
+keyword parameters: none
+return: None
+--------------------------------------------------
+function: check_args
+positional parameters: [1, 2, 3, 'test']
+keyword parameters: none
+return: True
+--------------------------------------------------
+function: return_decorator
+positional parameters: none
+keyword parameters: {'a': 10, 'b': 'hello'}
+return: <function logger_decorator at 0x105224360>
+--------------------------------------------------
+function: greet
+positional parameters: none
+keyword parameters: none
+return: None
+--------------------------------------------------
+function: check_args
+positional parameters: [1, 2, 3, 'test']
+keyword parameters: none
+return: True
+--------------------------------------------------
+function: return_decorator
+positional parameters: none
+keyword parameters: {'a': 10, 'b': 'hello'}
+return: <function logger_decorator at 0x100f44360>
+--------------------------------------------------
+function: greet
+positional parameters: none
+keyword parameters: none
+return: None
+--------------------------------------------------
+function: check_args
+positional parameters: [1, 2, 3, 'test']
+keyword parameters: none
+return: True
+--------------------------------------------------
+function: return_decorator
+positional parameters: none
+keyword parameters: {'a': 10, 'b': 'hello'}
+return: <function logger_decorator at 0x102eac360>
+--------------------------------------------------

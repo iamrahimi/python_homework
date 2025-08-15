@@ -1,139 +1,200 @@
-import pandas as pd
-import numpy as np
+import logging
+import csv
+import math
 
-# Task 1: Introduction to Pandas - Creating and Manipulating DataFrames ======================
+# One-time logger setup
+logger = logging.getLogger(__name__ + "_parameter_log")
+logger.setLevel(logging.INFO)
+logger.addHandler(logging.FileHandler("./decorator.log", "a"))
 
-# Step 1: Create the DataFrame from dictionary and assign to variable
-task1_data_frame = pd.DataFrame({
-    'Name': ['Alice', 'Bob', 'Charlie'],
-    'Age': [25, 30, 35],
-    'City': ['New York', 'Los Angeles', 'Chicago']
-})
+def logger_decorator(func):
+    def wrapper(*args, **kwargs):
+        # Log function name
+        func_name = func.__name__
 
-print("Task 1 DataFrame:")
-print(task1_data_frame)
+        # Positional params
+        positional_params = list(args) if args else "none"
 
-# Step 2: Add new column "Salary"
-task1_with_salary = task1_data_frame.copy()
-task1_with_salary["Salary"] = [70000, 80000, 90000]
+        # Keyword params
+        keyword_params = dict(kwargs) if kwargs else "none"
 
-print("\nTask 1 with Salary:")
-print(task1_with_salary)
+        # Call the actual function
+        result = func(*args, **kwargs)
 
-# Step 3: Modify "Age" column
-task1_older = task1_with_salary.copy()
-task1_older["Age"] = task1_older["Age"] + 1
+        # Log the information
+        logger.log(logging.INFO, f"function: {func_name}")
+        logger.log(logging.INFO, f"positional parameters: {positional_params}")
+        logger.log(logging.INFO, f"keyword parameters: {keyword_params}")
+        logger.log(logging.INFO, f"return: {result}")
+        logger.log(logging.INFO, "-" * 50)  # separator for readability
 
-print("\nTask 1 Older (Age incremented):")
-print(task1_older)
-
-# Step 4: Save to CSV
-task1_older.to_csv("assignment3/employees.csv", index=False)
-print("\nData saved to 'employees.csv'")
+        return result
+    return wrapper
 
 
-# Task 2: Loading Data from CSV and JSON ===============================================
+# Function 1: No parameters, no return
+@logger_decorator
+def greet():
+    print("Hello, World!")
 
-# Step 1: Load data from CSV file into a new DataFrame
-task2_employees = pd.read_csv("assignment3/employees.csv")
-print("Task 2 - Employees from CSV:")
-print(task2_employees)
 
-# Step 2: Load data from JSON file into another DataFrame
-# Create the JSON manually (if not already present)
-import json
+# Function 2: Variable positional arguments, returns True
+@logger_decorator
+def check_args(*args):
+    return True
 
-json_data = [
-    {
-        "Name": "Eve",
-        "Age": 28,
-        "City": "Miami",
-        "Salary": 60000
-    },
-    {
-        "Name": "Frank",
-        "Age": 40,
-        "City": "Seattle",
-        "Salary": 95000
-    }
-]
 
-# Save the JSON data to a file
-with open("assignment3/additional_employees.json", "w") as json_file:
-    json.dump(json_data, json_file)
+# Function 3: Variable keyword arguments, returns logger_decorator
+@logger_decorator
+def return_decorator(**kwargs):
+    return logger_decorator
 
-# Now read it into a DataFrame
-json_employees = pd.read_json("assignment3/additional_employees.json")
-print("\nTask 2 - Employees from JSON:")
-print(json_employees)
 
-# Step 3: Combine the two DataFrames
-more_employees = pd.concat([task2_employees, json_employees], ignore_index=True)
-print("\nTask 2 - Combined Employees:")
-print(more_employees)
+# Mainline code
+if __name__ == "__main__":
+    greet()
+    check_args(1, 2, 3, "test")
+    return_decorator(a=10, b="hello")
 
-# Task 3: Data Inspection - Using Head, Tail, and Info Methods ==================================
 
-# 1. Use head() to get the first three rows
-first_three = more_employees.head(3)
-print("First three rows:")
-print(first_three)
+def type_decorator(type_of_output):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            x = func(*args, **kwargs)  # Call the original function
+            return type_of_output(x)   # Convert the result to the desired type
+        return wrapper
+    return decorator
 
-# 2. Use tail() to get the last two rows
-last_two = more_employees.tail(2)
-print("\nLast two rows:")
-print(last_two)
 
-# 3. Get the shape of the DataFrame
-employee_shape = more_employees.shape
-print("\nShape of more_employees:")
-print(employee_shape)
+# Function 1: Returns int, but we decorate to convert it to str
+@type_decorator(str)
+def return_int():
+    return 5
 
-# 4. Use info() to print summary
-print("\nInfo of more_employees DataFrame:")
-more_employees.info()
 
-# Task 4: Data Cleaning ======================================
+# Function 2: Returns string that can't be converted to int
+@type_decorator(int)
+def return_string():
+    return "not a number"
 
-# 1. Load the CSV file
-dirty_data = pd.read_csv("assignment3/dirty_data.csv")
-print("Original dirty data:")
-print(dirty_data)
 
-# 2. Create a clean copy
-clean_data = dirty_data.copy()
+# Mainline
+if __name__ == "__main__":
+    y = return_int()
+    print(type(y).__name__)  # Should print "str"
 
-# 3. Remove duplicate rows
-clean_data = clean_data.drop_duplicates()
-print("\nAfter removing duplicates:")
-print(clean_data)
+    try:
+        y = return_string()
+        print("shouldn't get here!")  # Won't execute if ValueError occurs
+    except ValueError:
+        print("can't convert that string to an integer!")  # Expected outcome
 
-# 4. Convert Age to numeric, handle non-numeric/missing values
-clean_data['Age'] = pd.to_numeric(clean_data['Age'], errors='coerce')
-print("\nAfter converting Age to numeric:")
-print(clean_data)
+# Read CSV into a list of lists
+with open("csv/employees.csv", newline="") as csvfile:
+    reader = csv.reader(csvfile)
+    data = list(reader)  # Each row is a list of strings
 
-# 5. Convert Salary to numeric and replace placeholders with NaN
-clean_data['Salary'] = pd.to_numeric(
-    clean_data['Salary'].replace(["unknown", "n/a"], np.nan),
-    errors='coerce'
-)
-print("\nAfter converting Salary to numeric and replacing placeholders:")
-print(clean_data)
+# Create a list of "first_name last_name", skipping the header
+names = [row[0] + " " + row[1] for row in data[1:]]  # Skip the first row (header)
+print(names)
 
-# 6. Fill missing numeric values
-clean_data['Age'] = clean_data['Age'].fillna(clean_data['Age'].mean())
-clean_data['Salary'] = clean_data['Salary'].fillna(clean_data['Salary'].median())
-print("\nAfter filling missing values:")
-print(clean_data)
+# Create a new list with only names containing the letter "e"
+names_with_e = [name for name in names if "e" in name.lower()]
+print(names_with_e)
 
-# 7. Convert Hire Date to datetime
-clean_data['Hire Date'] = pd.to_datetime(clean_data['Hire Date'], errors='coerce')
-print("\nAfter converting Hire Date to datetime:")
-print(clean_data)
 
-# 8. Strip extra whitespace and standardize Name and Department to uppercase
-clean_data['Name'] = clean_data['Name'].str.strip().str.upper()
-clean_data['Department'] = clean_data['Department'].str.strip().str.upper()
-print("\nAfter cleaning Name and Department:")
-print(clean_data)
+
+def make_hangman(secret_word):
+    guesses = []
+
+    def hangman_closure(letter):
+        guesses.append(letter.lower())
+
+        # Build display string
+        display = ""
+        for ch in secret_word.lower():
+            if ch in guesses:
+                display += ch
+            else:
+                display += "_"
+        print(display)
+
+        # Check if all letters guessed
+        return all(ch in guesses for ch in secret_word.lower())
+
+    return hangman_closure
+
+
+if __name__ == "__main__":
+    # Prompt for secret word
+    secret = input("Enter the secret word: ").strip()
+
+    game = make_hangman(secret)
+
+    print("\nLet's play Hangman!\n")
+    while True:
+        guess = input("Enter a letter: ").strip().lower()
+
+        if not guess.isalpha() or len(guess) != 1:
+            print("Please enter a single letter.")
+            continue
+
+        if game(guess):
+            print(f"🎉 Congratulations! You guessed the word '{secret}'.")
+            break
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    # Equality check
+    def __eq__(self, other):
+        if isinstance(other, Point):
+            return self.x == other.x and self.y == other.y
+        return False
+
+    # String representation
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+
+    # Euclidean distance
+    def distance_to(self, other):
+        if isinstance(other, Point):
+            return math.sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)
+        raise TypeError("distance_to() requires a Point or Vector instance")
+
+
+class Vector(Point):
+    # Override string representation
+    def __str__(self):
+        return f"Vector<{self.x}, {self.y}>"
+
+    # Vector addition
+    def __add__(self, other):
+        if isinstance(other, Vector):
+            return Vector(self.x + other.x, self.y + other.y)
+        raise TypeError("Can only add Vector to Vector")
+
+
+if __name__ == "__main__":
+    # Demonstrate Point
+    p1 = Point(3, 4)
+    p2 = Point(6, 8)
+    print("p1:", p1)
+    print("p2:", p2)
+    print("p1 == p2?", p1 == p2)
+    print("Distance between p1 and p2:", p1.distance_to(p2))
+
+    # Demonstrate Vector
+    v1 = Vector(1, 2)
+    v2 = Vector(3, 4)
+    print("v1:", v1)
+    print("v2:", v2)
+    v3 = v1 + v2
+    print("v1 + v2 =", v3)
+    print("Distance between v1 and v3:", v1.distance_to(v3))
+
+
+
+
